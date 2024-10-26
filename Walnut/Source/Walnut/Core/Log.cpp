@@ -24,7 +24,7 @@ namespace Walnut {
 
 		std::vector<spdlog::sink_ptr> hazelSinks =
 		{
-			std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/HAZEL.log", true),
+			std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/WALNUT.log", true),
 #if WL_HAS_CONSOLE
 			std::make_shared<spdlog::sinks::stdout_color_sink_mt>()
 #endif
@@ -46,7 +46,7 @@ namespace Walnut {
 		appSinks[1]->set_pattern("%^[%T] %n: %v%$");
 #endif
 
-		s_CoreLogger = std::make_shared<spdlog::logger>("HAZEL", hazelSinks.begin(), hazelSinks.end());
+		s_CoreLogger = std::make_shared<spdlog::logger>("WALNUT", hazelSinks.begin(), hazelSinks.end());
 		s_CoreLogger->set_level(spdlog::level::trace);
 
 		s_ClientLogger = std::make_shared<spdlog::logger>("APP", appSinks.begin(), appSinks.end());
