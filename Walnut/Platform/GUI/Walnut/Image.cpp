@@ -6,6 +6,9 @@
 #include "ApplicationGUI.h"
 
 #define STB_IMAGE_IMPLEMENTATION
+#define STBI_MSC_SECURE_CRT
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 #include "stb_image.h"
 
 namespace Walnut {
@@ -301,6 +304,11 @@ namespace Walnut {
 		outHeight = height;
 
 		return data;
+	}
+
+	void Image::Export(const uint32_t* imageData, std::string& fileName) {
+		stbi_flip_vertically_on_write(1);
+		stbi_write_png(fileName.c_str(), m_Width, m_Height, Utils::BytesPerPixel(m_Format), imageData, m_Width * Utils::BytesPerPixel(m_Format));
 	}
 
 }
