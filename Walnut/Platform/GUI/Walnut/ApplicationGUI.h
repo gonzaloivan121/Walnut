@@ -68,6 +68,10 @@ namespace Walnut {
 		GLFWwindow* GetWindowHandle() const { return m_WindowHandle; }
 		bool IsTitleBarHovered() const { return m_TitleBarHovered; }
 
+		void SetWindowTitle(const std::string& title);
+
+		const ApplicationSpecification& GetSpecification() const { return m_Specification; }
+
 		static VkInstance GetInstance();
 		static VkPhysicalDevice GetPhysicalDevice();
 		static VkDevice GetDevice();
