@@ -49,6 +49,7 @@ namespace Walnut::UI {
 	void EndMenubar();
 
 	bool ButtonCentered(const char* label, const ImVec2& size = ImVec2(0, 0));
+	void TextCentered(std::string text);
 
 	// Utilities
 	class ScopedStyle
